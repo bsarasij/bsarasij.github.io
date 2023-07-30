@@ -4,11 +4,12 @@ layout: homepage
 
 ## About Me
 
-<p>I am currently pursuing my PhD in the Control Systems Engineering Lab at Arizona State University, led by  <a href="https://search.asu.edu/profile/29494">Dr Daniel E. Rivera</a>. Prior to this, I completed my undergraduate at the Indian Institute of Technology Kanpur (IITK), majoring in Chemical Engineering with a focus on Process Dynamics and Control. Presently working on optimizing Adaptive Mobile Health Interventions using control systems based engineering approaches. During my stay at IIT Kanpur, I was highly fortunate to have been mentored (in no particular order) by <a href = "https://iitk.ac.in/new/deepak-dhingra">Dr. Deepak Dhingra</a> (IITK, ES), <a href="https://www.iitk.ac.in/che/jks.htm">Dr. Jayant K. Singh </a> (IITK, CHE), <a href="https://peacelab-ayan.com/"> Dr. Ayan Mallik</a> (ASU, EEE), and <a href ="https://www.che.iitb.ac.in/faculty/sujit-s-jogwar">Dr. Sujit S. Jogwar </a> (IITB, CHE), all of whom have greatly shaped my path in pursuing a Ph.D. in Control Systems, and research in general.   
+<p>I am currently pursuing my PhD in the Control Systems Engineering Lab at Arizona State University, led by  <a href="https://search.asu.edu/profile/29494">Dr Daniel E. Rivera</a>. Prior to this, I completed my undergraduate at the Indian Institute of Technology Kanpur (IITK), majoring in Chemical Engineering with a focus on Process Dynamics and Control. Presently working on optimizing Adaptive Mobile Health Interventions using control systems based engineering approaches. During my stay at IIT Kanpur, I was highly fortunate to have been mentored (in no particular order) by <a href = "https://iitk.ac.in/new/deepak-dhingra">Dr. Deepak Dhingra</a> (IITK, ES), <a href="https://www.iitk.ac.in/che/jks.htm">Dr. Jayant K. Singh </a> (IITK, CHE), <a href="https://peacelab-ayan.com/"> Dr. Ayan Mallik</a> (ASU, EEE), and <a href ="https://www.che.iitb.ac.in/faculty/sujit-s-jogwar">Dr. Sujit S. Jogwar </a> (IITB, CHE), all of whom have greatly shaped my path in pursuing a Ph.D. in Control Systems, and research in general.</p>   
 
 <p>My <a href="./assets/files/Sarasij_Banerjee_CV_draft">CV</a> is available <a href="./assets/files/Sarasij_Banerjee_CV_draft">here</a></p>
 
 ## Research Interests
+
 I am broadly interested in the domains of modeling, optimization, and control theory. Specific interests involve:
 
 - **Model Predictive Control:** Multi-Degree-of-Freedom MPC, Hybrid MPC, Data-Driven Predictive Control
