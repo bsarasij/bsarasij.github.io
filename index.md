@@ -19,7 +19,7 @@ I am broadly interested in the domains of modeling, optimization, and control th
 
 - **[June. 2023]** Presented a poster on <a href="https://css.paperplaza.net/conferences/conferences/ACC23/program/ACC23_ContentListWeb_2.html"> Model-on-Demand-based Three Degree-of-Freedom Model Predictive Control</a> at <a href ="https://acc2023.a2c2.org/">American Control Conference 2023</a>, San Diego, California.
 - **[December. 2022]** Delivered a talk on <a href ="https://plan.core-apps.com/aiche2022/event/0fe0894cea90bdd81d4b8e6500a3cfcc">Discrete Simultaneous Perturbation Stochastic Algorithm (DSPSA) based system identification for designing optimized behavioral interventions </a> at the <a href = "https://www.linkedin.com/company/aichecast10/">AIChE Computing & Systems Technology Division session 2022, Phoeniz, Arizona</a>
-- **[August. 2021]**Joined the Control Systems Engineering Lab at ASU as a Graduate Research Assistant.
+- **[August. 2021]** Joined the Control Systems Engineering Lab at ASU as a Graduate Research Assistant.
 - **[July. 2021]** Graduated from IIT Kanpur with a B.Tech. from the Department of Chemical Engineering.
 
 {% include_relative _includes/publications.md %}
