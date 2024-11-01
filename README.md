@@ -124,7 +124,7 @@ canonical: https://minimal-light-theme.yliu.me/
 # Links 
 # If you don't need one of them, you may delete the corresponding line.
 google_scholar: https://scholar.google.com/citations?user=0fMVUSsAAAAJ&hl=en
-cv_link: assets/files/Sarasij_Banerjee_CV_draft.pdf
+cv_link: assets/files/Sarasij_Banerjee_2024_ASU_Resume.pdf
 github_link: https://github.com/bsarasij
 linkedin: https://www.linkedin.com/in/sarasij/
 
