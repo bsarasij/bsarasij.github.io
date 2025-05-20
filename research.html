@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Research | B. Sarasij</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/wordcloud@1.1.2/src/wordcloud2.js"></script>
+  <script src="script.js" defer></script>
+  </head>
+<body class="research-page">
+<nav class="main-nav" id="mainNav">
+  <div class="nav-links">
+    <a href="index.html">Home</a><span>·</span>
+    <a href="research.html" class="active">Research</a><span>·</span>
+    <a href="Resources.html">Resources</a><span>·</span>
+    <a href="resume.pdf" target="_blank" rel="noopener">Resume</a>
+  </div>
+  <button class="search-toggle" aria-label="Search">
+    <i class="fas fa-search"></i>
+  </button>
+  <button class="theme-toggle" aria-label="Toggle theme">🌙</button>
+</nav>
+
+<div class="parallax-container">
+  <div id="cloud" class="parallax-bg"></div>
+</div>
+<section class="intro-section">
+      <h1>Research Background</h1>
+      <p>I am a final-year Ph.D. candidate in Chemical Engineering at Arizona State University (2021–present), where I work in the <a href = "https://labs.engineering.asu.edu/csel/" class="lab-link">Control Systems Engineering Lab</a> under the guidance of <a href = "https://scholar.google.com/citations?hl=en&user=TWryOX0AAAAJ" class="lab-link">Dr. Daniel E. Rivera</a>. I am also a visiting and remote researcher with the <a href = "https://arm.ual.es/arm-group/about-us/" class="lab-link">Automatic, Robotics and Mechatronics </a> research group at the University of Almería, Spain, advised by <a href = "https://scholar.google.com/citations?hl=en&user=f8DZmoIAAAAJ" class="lab-link">Dr. José Luis Guzmán Sánchez</a>. In addition, I collaborate with the <a href = "https://hwsph.ucsd.edu/" class="lab-link">Center for Wireless & Population Health Systems</a> at UC San Diego, led by <a href = "https://scholar.google.com/citations?hl=en&user=yDaDUFgAAAAJ" class="lab-link">Dr. Eric B. Hekler</a>.</p>
+<p>My research focuses on developing end-to-end methodologies for input signal design, modeling, and control of multivariable, nonlinear systems with both continuous and categorical dynamics. I apply these methods in a range of domains, including chemical processes, human behavior, epidemiology, supply chains, and renewable energy systems. More broadly, my interests lie at the intersection of control theory, optimization, and machine learning.</p>
+<p>I hold a B.Tech in Chemical Engineering from the <a href = "https://www.iitk.ac.in/" class="lab-link">Indian Institute of Technology Kanpur</a> (2017–2021). During my undergraduate studies, I worked on neural-network-based control algorithms for power converters in datacenter applications at <a href = "https://peacelab-ayan.com/index.html" class="lab-link">PEACE Labs</a>, ASU, under <a href = "https://scholar.google.com/citations?hl=en&user=N_pdQB4AAAAJ" class="lab-link">Dr. Ayan Mallik</a>. I also contributed to optimal trajectory generation and control strategies for distillation columns at the <a href = "https://www.che.iitb.ac.in/group/process-integration-research-lab" class="lab-link">Process Integration Research Lab</a>, IIT Bombay, under <a href = "https://scholar.google.com/citations?hl=en&user=SHxypoIAAAAJ" class="lab-link">Dr. Sujit Jogwar</a>, and interned at the <a href = "https://cnislab.com/" class="lab-link">Computational Nanoscience and Interfacial Science Lab</a> at IIT Kanpur under <a href = "https://scholar.google.com/citations?hl=en&user=UDr7tjEAAAAJ" class="lab-link">Dr. Jayant K. Singh</a>.</p>
+</section>
+
+
+<template id="project-template">
+  <div class="project-card">
+    <img class="project-thumb" />
+    <div class="project-info">
+      <h3><a class="repo-link" target="_blank" rel="noopener"></a></h3>
+	<!-- NEW: description -->
+      <p class="project-desc"></p>
+        <div class="project-links">
+    <div class="dropdown">
+      <a href="#" class="btn btn-paper dropdown-toggle" role="button">
+        Papers <span class="caret">▾</span>
+      </a>
+      <ul class="dropdown-menu"></ul>
+    </div>
+    <a class="btn btn-code" target="_blank" rel="noopener">Code</a>
+  </div>
+
+    </div>
+      <!-- NEW: tech badges container -->
+      <div class="project-tech"></div>
+    </div>
+  </div>
+</template>
+
+<section class="projects-section">
+  <h2>Projects</h2>
+  <!-- cards will be injected here by JS -->
+</section>
+
+
+</body>
+</html>
