@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     // Parallax effect for cloud
     window.addEventListener("scroll", () => {
-      const scrolled = window.scrollY;
+      const scrolled = Math.max(0, window.scrollY);
       cloudContainer.style.transform = `translateY(${scrolled * 0.4}px)`;
     });
   }
