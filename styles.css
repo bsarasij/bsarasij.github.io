@@ -782,6 +782,18 @@ body.research-page[data-theme="dark"] .lib-badge {
     left: 20px;
     height: 100%;
   }
+  .main-nav,
+  .nav-links {
+    background: #f8f9fa;
+  }
+  .nav-links a,
+  .nav-links span {
+    color: #22223b !important;
+  }
+  .nav-links a:hover {
+    background: #2563eb;
+    color: #fff !important;
+  }
   body[data-theme="dark"] .main-nav,
   body[data-theme="dark"] .nav-links {
     background: #101522;
