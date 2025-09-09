@@ -243,21 +243,83 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 8) Dropdown: toggle & close (delegated, only on research page)
-  document.addEventListener('click', function(event) {
-    const toggle = event.target.closest('.dropdown-toggle');
-    if (toggle) {
-      // clicked a "Papers ▾" button
-      event.preventDefault();
-      event.stopPropagation();
-      toggle.closest('.dropdown').classList.toggle('open');
+  // 8) Dropdown "portal" logic for robust positioning
+  (function() {
+    let lastMenu = null, lastDropdown = null;
+    function closeDropdown() {
+      if (lastMenu && lastDropdown) {
+        lastDropdown.appendChild(lastMenu);
+        lastMenu.style.position = '';
+        lastMenu.style.left = '';
+        lastMenu.style.top = '';
+        lastMenu.style.width = '';
+        lastMenu.style.zIndex = '';
+        lastMenu.style.display = '';
+        lastDropdown.classList.remove('open');
+        lastMenu = null;
+        lastDropdown = null;
+      }
     }
-    else if (!event.target.closest('.dropdown')) {
-      // clicked outside any dropdown → close them all
-      document.querySelectorAll('.dropdown.open')
-              .forEach(dd => dd.classList.remove('open'));
-    }
-  });
+    document.addEventListener('click', function(event) {
+      const toggle = event.target.closest('.dropdown-toggle');
+      // Always close any open dropdown before opening a new one or clicking outside
+      if (!toggle || (lastDropdown && toggle && !lastDropdown.contains(toggle))) {
+        closeDropdown();
+      }
+      if (toggle) {
+        event.preventDefault();
+        event.stopPropagation();
+        const dropdown = toggle.closest('.dropdown');
+        const menu = dropdown.querySelector('.dropdown-menu');
+        // Toggle open state
+        const isOpen = !dropdown.classList.contains('open');
+        if (isOpen) {
+          dropdown.classList.add('open');
+          // Move menu to body and position
+          const rect = toggle.getBoundingClientRect();
+          menu.style.position = 'fixed';
+          menu.style.left = rect.left + 'px';
+          // Check if enough space below
+          const menuHeight = menu.offsetHeight || 160; // fallback
+          const spaceBelow = window.innerHeight - rect.bottom;
+          if (spaceBelow < menuHeight && rect.top > menuHeight) {
+            // Not enough space below, show above
+            menu.style.top = (rect.top - menuHeight) + 'px';
+          } else {
+            // Show below
+            menu.style.top = rect.bottom + 'px';
+          }
+          menu.style.width = rect.width + 'px';
+          menu.style.zIndex = 9999;
+          document.body.appendChild(menu);
+          menu.style.display = 'block'; // Ensure visible when portaled
+          lastMenu = menu;
+          lastDropdown = dropdown;
+        } else {
+          closeDropdown();
+        }
+      }
+    });
+    // On scroll, keep portaled menu positioned relative to its toggle
+    window.addEventListener('scroll', function() {
+      if (lastMenu && lastDropdown && lastMenu.parentElement === document.body) {
+        const toggle = lastDropdown.querySelector('.dropdown-toggle');
+        if (!toggle) return;
+        const rect = toggle.getBoundingClientRect();
+        // Recompute position to stay anchored to button
+        const menuHeight = lastMenu.offsetHeight || 160;
+        const spaceBelow = window.innerHeight - rect.bottom;
+        lastMenu.style.left = rect.left + 'px';
+        if (spaceBelow < menuHeight && rect.top > menuHeight) {
+          lastMenu.style.top = (rect.top - menuHeight) + 'px';
+        } else {
+          lastMenu.style.top = rect.bottom + 'px';
+        }
+        lastMenu.style.width = rect.width + 'px';
+        lastMenu.style.zIndex = 9999;
+      }
+    });
+  })();
 
   // Hamburger menu functionality
   const mainNav = document.querySelector('.main-nav');

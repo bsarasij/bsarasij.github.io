@@ -123,6 +123,7 @@ main.content {
   max-width: 800px;
   margin: 0 auto;
   text-align: left;
+  overflow: visible !important;
 }
 
 /* Research & Contact pages reuse these styles */
@@ -210,6 +211,7 @@ body.research-page .intro-section p + p {
 .projects-section {
   padding: 4rem 2rem;
   background: var(--bg);
+  overflow: visible !important;
 }
 
 /* Project Card Styles (used only on research page) */
@@ -336,7 +338,7 @@ body[data-theme="dark"] .project-card {
   list-style: none;
   padding: 0.5rem 0;
   min-width: 12rem;
-  z-index: 100;
+  z-index: 2000;
 }
 .dropdown-menu li + li {
   margin-top: 0.25rem;
@@ -394,6 +396,7 @@ body[data-theme="dark"] .dropdown-menu a:hover {
   max-width: 900px;
   margin: 0 auto;
   padding: 3rem 1rem;
+  overflow: visible !important;
 }
 .timeline {
   position: relative;
