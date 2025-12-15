@@ -1,0 +1,74 @@
+name: Lint and Format
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  schedule:
+    - cron: '36 9 * * 5'
+
+jobs:
+  lint:
+    name: Run ESLint and Prettier
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      security-events: write
+      actions: read
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        # Use your lockfile if present (npm ci), otherwise npm install
+        run: |
+          if [ -f package-lock.json ]; then npm ci; else npm install --no-audit --no-fund; fi
+
+      - name: Install ESLint, Prettier and SARIF formatter (dev)
+        run: |
+          npm install --no-audit --no-fund --no-save \
+            eslint@8.10.0 \
+            prettier \
+            eslint-config-prettier \
+            eslint-plugin-prettier \
+            @microsoft/eslint-formatter-sarif
+
+      - name: Run ESLint (produce SARIF)
+        env:
+          SARIF_ESLINT_IGNORE_SUPPRESSED: "true"
+        continue-on-error: true
+        run: |
+          # produce SARIF output even if lint errors exist (|| true prevents step from failing)
+          npx eslint . \
+            --config .eslintrc.js \
+            --ext .js,.jsx,.ts,.tsx \
+            --format @microsoft/eslint-formatter-sarif \
+            --output-file eslint-results.sarif || true
+
+      - name: Upload ESLint SARIF to GitHub (for code scanning view)
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: eslint-results.sarif
+          wait-for-processing: true
+
+      - name: Run Prettier check
+        run: npx prettier . --check
+
+      # Optional: auto-fix and commit back (uncomment if you want auto-fix behavior)
+      # - name: Auto-fix formatting & lint issues
+      #   if: github.event_name == 'push'
+      #   run: |
+      #     npx prettier . --write
+      #     npx eslint . --ext .js,.jsx,.ts,.tsx --fix || true
+      #     git config user.name "github-actions[bot]"
+      #     git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      #     git add -A
+      #     git commit -m "chore: auto-fix linting/formatting" || echo "no changes to commit"
+      #     git push
